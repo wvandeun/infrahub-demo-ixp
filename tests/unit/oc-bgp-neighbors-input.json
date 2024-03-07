@@ -1,0 +1,51 @@
+{
+  "data": {
+    "InfraBGPSession": {
+      "edges": [
+        {
+          "node": {
+            "id": "17b99396-d201-6878-3ddc-1df5beee69dc",
+            "peer_group": {
+              "node": {
+                "name": {
+                  "value": "TRANSIT_DEFAULT"
+                }
+              }
+            },
+            "local_ip": {
+              "node": {
+                "address": {
+                  "value": "203.0.113.78/24"
+                }
+              }
+            },
+            "remote_ip": {
+              "node": {
+                "address": {
+                  "value": "203.0.113.76/24"
+                }
+              }
+            },
+            "local_as": {
+              "node": {
+                "asn": {
+                  "value": 64511
+                }
+              }
+            },
+            "remote_as": {
+              "node": {
+                "asn": {
+                  "value": 174
+                }
+              }
+            },
+            "description": {
+              "value": null
+            }
+          }
+        }
+      ]
+    }
+  }
+}

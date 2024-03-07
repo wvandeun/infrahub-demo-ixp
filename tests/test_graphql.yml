@@ -1,0 +1,26 @@
+---
+version: "1.0"
+infrahub_tests:
+  - resource: GraphQLQuery
+    resource_name: arista_router_config
+    tests:
+      - name: syntax_check
+        spec:
+          path: templates/arista_router_config.gql
+          kind: graphql-query-smoke
+
+  - resource: GraphQLQuery
+    resource_name: oc_interfaces
+    tests:
+      - name: syntax_check
+        spec:
+          path: transforms/oc_interfaces.gql
+          kind: graphql-query-smoke
+
+  - resource: GraphQLQuery
+    resource_name: oc_bgp_neighbors
+    tests:
+      - name: syntax_check
+        spec:
+          path: transforms/oc_bgp_neighbors.gql
+          kind: graphql-query-smoke

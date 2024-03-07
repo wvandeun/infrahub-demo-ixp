@@ -1,0 +1,15 @@
+{
+  "openconfig-bgp:neighbors": {
+    "neighbor": [
+      {
+        "config": {
+          "local-as": 64511,
+          "neighbor-address": "203.0.113.76",
+          "peer-as": 174,
+          "peer-group": "TRANSIT_DEFAULT"
+        },
+        "neighbor-address": "203.0.113.76"
+      }
+    ]
+  }
+}

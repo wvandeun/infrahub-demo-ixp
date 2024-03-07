@@ -1,0 +1,486 @@
+{
+  "data": {
+    "InfraDevice": {
+      "edges": [
+        {
+          "node": {
+            "id": "17b992df-01a2-ed58-3dd4-1df555078d9f",
+            "name": {
+              "value": "lnd1-edge1"
+            },
+            "interfaces": {
+              "edges": [
+                {
+                  "node": {
+                    "__typename": "InfraInterfaceL3",
+                    "name": {
+                      "value": "Ethernet1"
+                    },
+                    "description": {
+                      "value": "Connected to lnd1-edge2 Ethernet1"
+                    },
+                    "speed": {
+                      "value": 10000
+                    },
+                    "mtu": {
+                      "value": 1500
+                    },
+                    "enabled": {
+                      "value": true
+                    },
+                    "role": {
+                      "value": "peer"
+                    },
+                    "ip_addresses": {
+                      "edges": [
+                        {
+                          "node": {
+                            "address": {
+                              "ip": "10.1.0.24",
+                              "value": "10.1.0.24/31"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "InfraInterfaceL3",
+                    "name": {
+                      "value": "Ethernet10"
+                    },
+                    "description": {
+                      "value": null
+                    },
+                    "speed": {
+                      "value": 10000
+                    },
+                    "mtu": {
+                      "value": 1500
+                    },
+                    "enabled": {
+                      "value": true
+                    },
+                    "role": {
+                      "value": "spare"
+                    },
+                    "ip_addresses": {
+                      "edges": []
+                    }
+                  }
+                },
+                {
+                  "node": {}
+                },
+                {
+                  "node": {}
+                },
+                {
+                  "node": {
+                    "__typename": "InfraInterfaceL3",
+                    "name": {
+                      "value": "Ethernet2"
+                    },
+                    "description": {
+                      "value": "Connected to lnd1-edge2 Ethernet2"
+                    },
+                    "speed": {
+                      "value": 10000
+                    },
+                    "mtu": {
+                      "value": 1500
+                    },
+                    "enabled": {
+                      "value": true
+                    },
+                    "role": {
+                      "value": "peer"
+                    },
+                    "ip_addresses": {
+                      "edges": [
+                        {
+                          "node": {
+                            "address": {
+                              "ip": "10.1.0.26",
+                              "value": "10.1.0.26/31"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "InfraInterfaceL3",
+                    "name": {
+                      "value": "Ethernet3"
+                    },
+                    "description": {
+                      "value": "Backbone: Connected to atl1-edge1 via OTTO-6535773"
+                    },
+                    "speed": {
+                      "value": 10000
+                    },
+                    "mtu": {
+                      "value": 1500
+                    },
+                    "enabled": {
+                      "value": true
+                    },
+                    "role": {
+                      "value": "backbone"
+                    },
+                    "ip_addresses": {
+                      "edges": [
+                        {
+                          "node": {
+                            "address": {
+                              "ip": "10.1.0.3",
+                              "value": "10.1.0.3/31"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "InfraInterfaceL3",
+                    "name": {
+                      "value": "Ethernet4"
+                    },
+                    "description": {
+                      "value": null
+                    },
+                    "speed": {
+                      "value": 10000
+                    },
+                    "mtu": {
+                      "value": 1500
+                    },
+                    "enabled": {
+                      "value": true
+                    },
+                    "role": {
+                      "value": "backbone"
+                    },
+                    "ip_addresses": {
+                      "edges": []
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "InfraInterfaceL3",
+                    "name": {
+                      "value": "Ethernet5"
+                    },
+                    "description": {
+                      "value": null
+                    },
+                    "speed": {
+                      "value": 10000
+                    },
+                    "mtu": {
+                      "value": 1500
+                    },
+                    "enabled": {
+                      "value": true
+                    },
+                    "role": {
+                      "value": "transit"
+                    },
+                    "ip_addresses": {
+                      "edges": [
+                        {
+                          "node": {
+                            "address": {
+                              "ip": "203.0.113.33",
+                              "value": "203.0.113.33/29"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "InfraInterfaceL3",
+                    "name": {
+                      "value": "Ethernet6"
+                    },
+                    "description": {
+                      "value": "Backbone: Connected to ord1-edge1 via OTTO-5826854"
+                    },
+                    "speed": {
+                      "value": 10000
+                    },
+                    "mtu": {
+                      "value": 1500
+                    },
+                    "enabled": {
+                      "value": true
+                    },
+                    "role": {
+                      "value": "transit"
+                    },
+                    "ip_addresses": {
+                      "edges": [
+                        {
+                          "node": {
+                            "address": {
+                              "ip": "10.1.0.4",
+                              "value": "10.1.0.4/31"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "address": {
+                              "ip": "203.0.113.57",
+                              "value": "203.0.113.57/29"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "InfraInterfaceL3",
+                    "name": {
+                      "value": "Ethernet7"
+                    },
+                    "description": {
+                      "value": null
+                    },
+                    "speed": {
+                      "value": 10000
+                    },
+                    "mtu": {
+                      "value": 1500
+                    },
+                    "enabled": {
+                      "value": true
+                    },
+                    "role": {
+                      "value": "transit"
+                    },
+                    "ip_addresses": {
+                      "edges": [
+                        {
+                          "node": {
+                            "address": {
+                              "ip": "203.0.113.78",
+                              "value": "203.0.113.78/24"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "InfraInterfaceL3",
+                    "name": {
+                      "value": "Ethernet8"
+                    },
+                    "description": {
+                      "value": null
+                    },
+                    "speed": {
+                      "value": 10000
+                    },
+                    "mtu": {
+                      "value": 1500
+                    },
+                    "enabled": {
+                      "value": true
+                    },
+                    "role": {
+                      "value": "spare"
+                    },
+                    "ip_addresses": {
+                      "edges": []
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "InfraInterfaceL3",
+                    "name": {
+                      "value": "Ethernet9"
+                    },
+                    "description": {
+                      "value": null
+                    },
+                    "speed": {
+                      "value": 10000
+                    },
+                    "mtu": {
+                      "value": 1500
+                    },
+                    "enabled": {
+                      "value": true
+                    },
+                    "role": {
+                      "value": "peering"
+                    },
+                    "ip_addresses": {
+                      "edges": [
+                        {
+                          "node": {
+                            "address": {
+                              "ip": "203.0.113.89",
+                              "value": "203.0.113.89/29"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "InfraInterfaceL3",
+                    "name": {
+                      "value": "Loopback0"
+                    },
+                    "description": {
+                      "value": null
+                    },
+                    "speed": {
+                      "value": 1000
+                    },
+                    "mtu": {
+                      "value": 1500
+                    },
+                    "enabled": {
+                      "value": true
+                    },
+                    "role": {
+                      "value": "loopback"
+                    },
+                    "ip_addresses": {
+                      "edges": [
+                        {
+                          "node": {
+                            "address": {
+                              "ip": "10.0.0.3",
+                              "value": "10.0.0.3/32"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "InfraInterfaceL3",
+                    "name": {
+                      "value": "Management0"
+                    },
+                    "description": {
+                      "value": null
+                    },
+                    "speed": {
+                      "value": 1000
+                    },
+                    "mtu": {
+                      "value": 1500
+                    },
+                    "enabled": {
+                      "value": true
+                    },
+                    "role": {
+                      "value": "management"
+                    },
+                    "ip_addresses": {
+                      "edges": [
+                        {
+                          "node": {
+                            "address": {
+                              "ip": "172.20.20.4",
+                              "value": "172.20.20.4/24"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "InfraBGPSession": {
+      "count": 1,
+      "edges": [
+        {
+          "node": {
+            "id": "17b99396-d201-6878-3ddc-1df5beee69dc",
+            "description": {
+              "value": null
+            },
+            "remote_ip": {
+              "node": {
+                "address": {
+                  "ip": "203.0.113.76"
+                }
+              }
+            },
+            "remote_as": {
+              "node": {
+                "asn": {
+                  "value": 174
+                }
+              }
+            },
+            "peer_group": {
+              "node": {
+                "name": {
+                  "value": "TRANSIT_DEFAULT"
+                },
+                "description": {
+                  "value": null
+                },
+                "import_policies": {
+                  "value": "IMPORT_TRANSIT"
+                },
+                "send_community": {
+                  "value": null
+                },
+                "maximum_routes": {
+                  "value": null
+                },
+                "export_policies": {
+                  "value": "EXPORT_PUBLIC_PREFIX"
+                },
+                "local_as": {
+                  "node": {
+                    "asn": {
+                      "value": 64496
+                    }
+                  }
+                },
+                "remote_as": {
+                  "node": null
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

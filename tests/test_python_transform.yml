@@ -1,0 +1,28 @@
+---
+version: "1.0"
+infrahub_tests:
+  - resource: PythonTransform
+    resource_name: OCInterfaces
+    tests:
+      - name: syntax_check
+        spec:
+          kind: python-transform-smoke
+      - name: unit_test
+        spec:
+          kind: python-transform-unit-process
+          directory: unit
+          input: oc-interfaces-input.json
+          output: oc-interfaces-output.json
+
+  - resource: PythonTransform
+    resource_name: OCBGPNeighbors
+    tests:
+      - name: syntax_check
+        spec:
+          kind: python-transform-smoke
+      - name: unit_test
+        spec:
+          kind: python-transform-unit-process
+          directory: unit
+          input: oc-bgp-neighbors-input.json
+          output: oc-bgp-neighbors-output.json

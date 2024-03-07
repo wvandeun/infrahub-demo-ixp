@@ -1,0 +1,123 @@
+hostname lnd1-edge1
+ip name-server vrf MGMT 8.8.8.8
+!
+dns domain opsmill.com
+!
+ntp local-interface vrf MGMT Management0
+ntp server vrf MGMT time1.google.com
+!
+no aaa root
+no enable password
+!
+username admin privilege 15 role network-admin secret admin
+!
+vrf instance MGMT
+!
+interface Ethernet1 
+  description Connected to lnd1-edge2 Ethernet1
+  no shutdown
+  mtu 1500
+  no switchport
+  ip address 10.1.0.24/31
+!
+interface Ethernet10 
+  description None
+  no shutdown
+  mtu 1500
+  no switchport
+!
+interface Ethernet2 
+  description Connected to lnd1-edge2 Ethernet2
+  no shutdown
+  mtu 1500
+  no switchport
+  ip address 10.1.0.26/31
+!
+interface Ethernet3 
+  description Backbone: Connected to atl1-edge1 via OTTO-6535773
+  no shutdown
+  mtu 1500
+  no switchport
+  ip address 10.1.0.3/31
+!
+interface Ethernet4 
+  description None
+  no shutdown
+  mtu 1500
+  no switchport
+!
+interface Ethernet5 
+  description None
+  no shutdown
+  mtu 1500
+  no switchport
+  ip address 203.0.113.33/29
+!
+interface Ethernet6 
+  description Backbone: Connected to ord1-edge1 via OTTO-5826854
+  no shutdown
+  mtu 1500
+  no switchport
+  ip address 10.1.0.4/31
+  ip address 203.0.113.57/29
+!
+interface Ethernet7 
+  description None
+  no shutdown
+  mtu 1500
+  no switchport
+  ip address 203.0.113.78/24
+!
+interface Ethernet8 
+  description None
+  no shutdown
+  mtu 1500
+  no switchport
+!
+interface Ethernet9 
+  description None
+  no shutdown
+  mtu 1500
+  no switchport
+  ip address 203.0.113.89/29
+!
+interface Loopback0 
+  description None
+  no shutdown
+  mtu 1500
+  no switchport
+  ip address 10.0.0.3/32
+!
+interface Management0 
+  description None
+  no shutdown
+  mtu 1500
+  no switchport
+  vrf MGMT
+  ip address 172.20.20.4/24
+!
+!
+ip routing
+no ip routing vrf MGMT
+!
+ip route vrf MGMT 0.0.0.0/0 192.168.123.1
+!
+router bgp 65000
+   router-id 10.0.0.3
+   maximum-paths 4 ecmp 4 
+   neighbor TRANSIT_DEFAULT peer group 
+   neighbor TRANSIT_DEFAULT maximum-routes None 
+   neighbor TRANSIT_DEFAULT local-as 64496  
+   neighbor TRANSIT_DEFAULT route-map IMPORT_TRANSIT in  
+   neighbor TRANSIT_DEFAULT route-map EXPORT_PUBLIC_PREFIX out  
+   neighbor 203.0.113.76 peer group TRANSIT_DEFAULT 
+   neighbor 203.0.113.76 description None 
+!!
+management api http-commands
+   protocol https
+   no shutdown
+   !
+   vrf MGMT
+      no shutdown
+!
+end

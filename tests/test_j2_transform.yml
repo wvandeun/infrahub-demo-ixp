@@ -1,0 +1,15 @@
+---
+version: "1.0"
+infrahub_tests:
+  - resource: Jinja2Transform
+    resource_name: arista_config
+    tests:
+      - name: syntax_check
+        spec:
+          kind: jinja2-transform-smoke
+      - name: unit_test
+        spec:
+          kind: jinja2-transform-unit-render
+          directory: unit
+          input: arista-config-input.json
+          output: arista-config-output.txt

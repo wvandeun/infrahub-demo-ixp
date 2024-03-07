@@ -1,0 +1,327 @@
+{
+  "openconfig-interfaces:interface": [
+    {
+      "config": {
+        "description": "Connected to lnd1-edge2 Ethernet1",
+        "enabled": true
+      },
+      "name": "Ethernet1",
+      "subinterfaces": {
+        "subinterface": [
+          {
+            "index": 0,
+            "openconfig-if-ip:ipv4": {
+              "addresses": {
+                "address": [
+                  {
+                    "config": {
+                      "ip": "10.1.0.24",
+                      "prefix-length": "31"
+                    },
+                    "ip": "10.1.0.24"
+                  }
+                ]
+              },
+              "config": {
+                "enabled": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "enabled": true
+      },
+      "name": "Ethernet10",
+      "subinterfaces": {
+        "subinterface": []
+      }
+    },
+    {
+      "config": {
+        "enabled": true
+      },
+      "name": "Ethernet11"
+    },
+    {
+      "config": {
+        "enabled": true
+      },
+      "name": "Ethernet12"
+    },
+    {
+      "config": {
+        "description": "Connected to lnd1-edge2 Ethernet2",
+        "enabled": true
+      },
+      "name": "Ethernet2",
+      "subinterfaces": {
+        "subinterface": [
+          {
+            "index": 0,
+            "openconfig-if-ip:ipv4": {
+              "addresses": {
+                "address": [
+                  {
+                    "config": {
+                      "ip": "10.1.0.26",
+                      "prefix-length": "31"
+                    },
+                    "ip": "10.1.0.26"
+                  }
+                ]
+              },
+              "config": {
+                "enabled": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "description": "Backbone: Connected to atl1-edge1 via OTTO-6535773",
+        "enabled": true
+      },
+      "name": "Ethernet3",
+      "subinterfaces": {
+        "subinterface": [
+          {
+            "index": 0,
+            "openconfig-if-ip:ipv4": {
+              "addresses": {
+                "address": [
+                  {
+                    "config": {
+                      "ip": "10.1.0.3",
+                      "prefix-length": "31"
+                    },
+                    "ip": "10.1.0.3"
+                  }
+                ]
+              },
+              "config": {
+                "enabled": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "enabled": true
+      },
+      "name": "Ethernet4",
+      "subinterfaces": {
+        "subinterface": []
+      }
+    },
+    {
+      "config": {
+        "enabled": true
+      },
+      "name": "Ethernet5",
+      "subinterfaces": {
+        "subinterface": [
+          {
+            "index": 0,
+            "openconfig-if-ip:ipv4": {
+              "addresses": {
+                "address": [
+                  {
+                    "config": {
+                      "ip": "203.0.113.33",
+                      "prefix-length": "29"
+                    },
+                    "ip": "203.0.113.33"
+                  }
+                ]
+              },
+              "config": {
+                "enabled": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "description": "Backbone: Connected to ord1-edge1 via OTTO-5826854",
+        "enabled": true
+      },
+      "name": "Ethernet6",
+      "subinterfaces": {
+        "subinterface": [
+          {
+            "index": 0,
+            "openconfig-if-ip:ipv4": {
+              "addresses": {
+                "address": [
+                  {
+                    "config": {
+                      "ip": "10.1.0.4",
+                      "prefix-length": "31"
+                    },
+                    "ip": "10.1.0.4"
+                  }
+                ]
+              },
+              "config": {
+                "enabled": true
+              }
+            }
+          },
+          {
+            "index": 1,
+            "openconfig-if-ip:ipv4": {
+              "addresses": {
+                "address": [
+                  {
+                    "config": {
+                      "ip": "203.0.113.57",
+                      "prefix-length": "29"
+                    },
+                    "ip": "203.0.113.57"
+                  }
+                ]
+              },
+              "config": {
+                "enabled": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "enabled": true
+      },
+      "name": "Ethernet7",
+      "subinterfaces": {
+        "subinterface": [
+          {
+            "index": 0,
+            "openconfig-if-ip:ipv4": {
+              "addresses": {
+                "address": [
+                  {
+                    "config": {
+                      "ip": "203.0.113.78",
+                      "prefix-length": "24"
+                    },
+                    "ip": "203.0.113.78"
+                  }
+                ]
+              },
+              "config": {
+                "enabled": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "enabled": true
+      },
+      "name": "Ethernet8",
+      "subinterfaces": {
+        "subinterface": []
+      }
+    },
+    {
+      "config": {
+        "enabled": true
+      },
+      "name": "Ethernet9",
+      "subinterfaces": {
+        "subinterface": [
+          {
+            "index": 0,
+            "openconfig-if-ip:ipv4": {
+              "addresses": {
+                "address": [
+                  {
+                    "config": {
+                      "ip": "203.0.113.89",
+                      "prefix-length": "29"
+                    },
+                    "ip": "203.0.113.89"
+                  }
+                ]
+              },
+              "config": {
+                "enabled": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "enabled": true
+      },
+      "name": "Loopback0",
+      "subinterfaces": {
+        "subinterface": [
+          {
+            "index": 0,
+            "openconfig-if-ip:ipv4": {
+              "addresses": {
+                "address": [
+                  {
+                    "config": {
+                      "ip": "10.0.0.3",
+                      "prefix-length": "32"
+                    },
+                    "ip": "10.0.0.3"
+                  }
+                ]
+              },
+              "config": {
+                "enabled": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "config": {
+        "enabled": true
+      },
+      "name": "Management0",
+      "subinterfaces": {
+        "subinterface": [
+          {
+            "index": 0,
+            "openconfig-if-ip:ipv4": {
+              "addresses": {
+                "address": [
+                  {
+                    "config": {
+                      "ip": "172.20.20.4",
+                      "prefix-length": "24"
+                    },
+                    "ip": "172.20.20.4"
+                  }
+                ]
+              },
+              "config": {
+                "enabled": true
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
