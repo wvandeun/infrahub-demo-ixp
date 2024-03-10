@@ -3,7 +3,7 @@
 version: '1.0'
 generics:
   - name: Location
-    namespace: Ixp
+    namespace: Infra
     description: "Generic Location Interface."
     label: "Location"
     icon: "mingcute:location-line"
@@ -20,7 +20,7 @@ generics:
         kind: Text
         optional: true
   - name: Service
-    namespace: Ixp
+    namespace: Infra
     description: "Generic network service"
     label: "Service"
     default_filter: name__value
@@ -261,7 +261,7 @@ nodes:
         kind: Attribute
       - name: location
         label: Location
-        peer: IxpRack
+        peer: InfraRack
         optional: true
         kind: Attribute
         cardinality: one
@@ -344,14 +344,14 @@ nodes:
         kind: Attribute
         identifier: interface_l2__tagged_vlan
   - name: IXPBGPPrivatePeering
-    namespace: Ixp
+    namespace: Infra
     label: "IXP BGP private peering"
     description: "Private BGP peering over IXP"
-    menu_placement: IxpService
+    menu_placement: InfraService
     display_labels:
       - name__value
     inherit_from:
-      - "IxpService"
+      - "InfraService"
     attributes:
       - name: name
         label: Name
@@ -373,7 +373,7 @@ nodes:
         peer: InfraIXP
         kind: Attribute
   - name: TransitPort
-    namespace: Ixp
+    namespace: Infra
     label: Transit Port
     default_filter: name__value
     menu_placement: InfraEndpoint
@@ -399,7 +399,7 @@ nodes:
         kind: Attribute
       - name: location
         label: Location
-        peer: IxpMetro
+        peer: InfraMetro
         cardinality: one
         kind: Attribute
       - name: ip_address
@@ -805,7 +805,6 @@ nodes:
       - kind: Text
         name: description
         optional: true
-
   - name: Role
     namespace: Builtin
     label: Role
@@ -826,15 +825,15 @@ nodes:
         name: description
         optional: true
   - name: Continent
-    namespace: Ixp
-    inherit_from: ["IxpLocation"]
+    namespace: Infra
+    inherit_from: ["InfraLocation"]
     include_in_menu: true
-    menu_placement: "IxpLocation"
+    menu_placement: "InfraLocation"
     label: Continent
     display_labels:
       - name__value
     parent: ""
-    children: "IxpCountry"
+    children: "InfraCountry"
     icon: "jam:world"
     relationships:
       - name: transit_peer_group
@@ -843,80 +842,80 @@ nodes:
         cardinality: "one"
         optional: true
   - name: Country
-    namespace: Ixp
-    inherit_from: ["IxpLocation"]
+    namespace: Infra
+    inherit_from: ["InfraLocation"]
     include_in_menu: true
-    menu_placement: "IxpLocation"
+    menu_placement: "InfraLocation"
     label: Country
     display_labels:
       - name__value
-    parent: "IxpContinent"
-    children: "IxpRegion"
+    parent: "InfraContinent"
+    children: "InfraRegion"
     icon: "gis:search-country"
   - name: Region
-    namespace: Ixp
-    inherit_from: ["IxpLocation"]
+    namespace: Infra
+    inherit_from: ["InfraLocation"]
     include_in_menu: true
-    menu_placement: "IxpLocation"
+    menu_placement: "InfraLocation"
     label: Region
     display_labels:
       - name__value
-    parent: "IxpCountry"
-    children: "IxpMetro"
+    parent: "InfraCountry"
+    children: "InfraMetro"
     icon: "carbon:cics-region-target"
   - name: Metro
-    namespace: Ixp
-    inherit_from: ["IxpLocation"]
+    namespace: Infra
+    inherit_from: ["InfraLocation"]
     include_in_menu: true
-    menu_placement: "IxpLocation"
+    menu_placement: "InfraLocation"
     label: Metro
     display_labels:
       - name__value
-    parent: "IxpRegion"
-    children: "IxpBuilding"
+    parent: "InfraRegion"
+    children: "InfraBuilding"
     icon: "healthicons:city"
   - name: Building
-    namespace: Ixp
-    inherit_from: ["IxpLocation"]
+    namespace: Infra
+    inherit_from: ["InfraLocation"]
     include_in_menu: true
-    menu_placement: "IxpLocation"
+    menu_placement: "InfraLocation"
     label: Building
     display_labels:
       - name__value
-    parent: "IxpMetro"
-    children: "IxpFloor"
+    parent: "InfraMetro"
+    children: "InfraFloor"
     icon: "ri:building-line"
   - name: Floor
-    namespace: Ixp
-    inherit_from: ["IxpLocation"]
+    namespace: Infra
+    inherit_from: ["InfraLocation"]
     include_in_menu: true
-    menu_placement: "IxpLocation"
+    menu_placement: "InfraLocation"
     label: Floor
     display_labels:
       - name__value
-    parent: "IxpBuilding"
+    parent: "InfraBuilding"
     icon: "mdi:home-floor-0"
-    children: "IxpSuite"
+    children: "InfraSuite"
   - name: Suite
-    namespace: Ixp
-    inherit_from: ["IxpLocation"]
+    namespace: Infra
+    inherit_from: ["InfraLocation"]
     include_in_menu: true
-    menu_placement: "IxpLocation"
+    menu_placement: "InfraLocation"
     label: Suite
     display_labels:
       - name__value
-    parent: "IxpFloor"
-    children: "IxpRack"
+    parent: "InfraFloor"
+    children: "InfraRack"
     icon: "game-icons:cage"
   - name: Rack
-    namespace: Ixp
-    inherit_from: ["IxpLocation"]
+    namespace: Infra
+    inherit_from: ["InfraLocation"]
     include_in_menu: true
     label: Rack
     display_labels:
       - name__value
-    menu_placement: "IxpLocation"
-    parent: "IxpSuite"
+    menu_placement: "InfraLocation"
+    parent: "InfraSuite"
     children: ""
     icon: "clarity:rack-server-line"
     relationships:
@@ -971,7 +970,7 @@ nodes:
         optional: true
     relationships:
       - name: locations
-        peer: IxpLocation
+        peer: InfraLocation
         optional: true
         cardinality: many
         kind: Attribute

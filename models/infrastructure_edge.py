@@ -361,26 +361,26 @@ async def create_connection_transit_port(client: InfrahubClient, log: logging.Lo
     await local_ip_addr.save()
 
     asn = await client.get(branch=branch, kind="InfraAutonomousSystem", asn__value=174)
-    location = await client.get(branch=branch, kind="IxpMetro", name__value="London")
+    location = await client.get(branch=branch, kind="InfraMetro", name__value="London")
 
     ixp_interface = await client.get(branch=branch, kind="InfraInterface", device__name__value="lnd1-edge1", name__value="Ethernet5")
     ixp_interface.ip_addresses.add(local_ip_addr)
     await ixp_interface.save()
 
-    transit_port = await client.create(branch=branch, kind="IxpTransitPort", data={"name": "Cogent London Transit Port", "speed": 10000, "bandwidth": 4000, "asn": asn, "location": location, "ip_address": remote_ip_addr, "connected_endpoint": ixp_interface})
+    transit_port = await client.create(branch=branch, kind="InfraTransitPort", data={"name": "Cogent London Transit Port", "speed": 10000, "bandwidth": 4000, "asn": asn, "location": location, "ip_address": remote_ip_addr, "connected_endpoint": ixp_interface})
     await transit_port.save()
     
 async def create_location_hierarchy(client: InfrahubClient, log: logging.Logger, branch: str):
     for continent, data in LOCATIONS.items():
         infra_continent = await client.create(
-            kind="IxpContinent",
+            kind="InfraContinent",
             data={"name": continent}
         )
         await infra_continent.save()
         log.info(f"- Created {infra_continent._schema.kind} - {infra_continent.name.value}")
 
         for country, regions in data["countries"].items():
-            infra_country = await client.create(kind="IxpCountry", data={
+            infra_country = await client.create(kind="InfraCountry", data={
                 "name": country,
                 "parent": infra_continent
             })
@@ -388,38 +388,38 @@ async def create_location_hierarchy(client: InfrahubClient, log: logging.Logger,
             log.info(f"- Created {infra_country._schema.kind} - {infra_country.name.value}")
 
             for region, metros in regions.items():
-                infra_region = await client.create(kind="IxpRegion", data={
+                infra_region = await client.create(kind="InfraRegion", data={
                     "name": region,
                     "parent": infra_country
                 })
                 await infra_region.save()
 
                 for metro, buildings in metros.items():
-                    infra_metro = await client.create(kind="IxpMetro", data={
+                    infra_metro = await client.create(kind="InfraMetro", data={
                         "name": metro,
                         "parent": infra_region
                     })
                 await infra_metro.save()
                 for building, floors in buildings.items():
-                    infra_building = await client.create(kind="IxpBuilding", data={
+                    infra_building = await client.create(kind="InfraBuilding", data={
                         "name": building,
                         "parent": infra_metro
                     })
                     await infra_building.save()
                     for floor, suites in floors.items():
-                        infra_floor = await client.create(kind="IxpFloor", data={
+                        infra_floor = await client.create(kind="InfraFloor", data={
                             "name": floor,
                             "parent": infra_building
                         })
                         await infra_floor.save()
                         for suite, racks in suites.items():
-                            infra_suite = await client.create(kind="IxpSuite", data={
+                            infra_suite = await client.create(kind="InfraSuite", data={
                                 "name": suite,
                                 "parent": infra_floor
                             })
                             await infra_suite.save()
                             for rack, devices in racks.items():
-                                infra_rack = await client.create(kind="IxpRack", data={
+                                infra_rack = await client.create(kind="InfraRack", data={
                                     "name": rack,
                                     "parent": infra_suite
                                 })
@@ -444,7 +444,7 @@ async def create_ixps(client: InfrahubClient, log: logging.Logger, branch: str):
     for ixp in IXPS:
         locations = []
         if len(ixp.get("locations")) > 0:
-            locations = await client.filters("IxpLocation", branch=branch, name__values=ixp.get("locations"))
+            locations = await client.filters("InfraLocation", branch=branch, name__values=ixp.get("locations"))
         obj = await client.create(kind="InfraIXP", branch=branch, data={**ixp, **{"locations": locations}})
         await obj.save()
 
