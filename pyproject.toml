@@ -1,15 +1,15 @@
 [tool.poetry]
 name = "infrahub-demo-ixp"
-version = "0.1.0"
-description = ""
+version = "0.1.1"
+description = "Infrahub - Demo repository for IXPs"
 authors = ["OpsMill <info@opsmill.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9, < 3.12"
-typer = "^0.7"
+python = "^3.10, < 3.13"
+typer = "^0.12.3"
 pygnmi = "^0.6.9"
 invoke = "^2.1.2"
-infrahub-sdk = "^0, >=0.7.0"
+infrahub-sdk = { version = "0.10.1", extras = ["all"] }
 nornir-infrahub = "^0, >=0.2.2"
 
 [tool.poetry.dev-dependencies]
