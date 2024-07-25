@@ -6,9 +6,7 @@ router bgp 65000
    maximum-paths 4 ecmp 4 
    {% for name, group in ns.bgp_peer_groups.items() %}
    neighbor {{ name }} peer group 
-   {% if group.send_community.value %}
    neighbor {{ name }} send-community 
-   {% endif %}
    neighbor {{ name }} maximum-routes {{ group.maximum_routes.value }} 
    neighbor {{ name }} local-as {{ group.local_as.node.asn.value }}  
    neighbor {{ name }} route-map {{ group.import_policies.value }} in  

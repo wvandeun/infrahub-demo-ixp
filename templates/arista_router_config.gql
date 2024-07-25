@@ -79,9 +79,6 @@ query device_config($device: String!) {
             import_policies {
               value
             }
-	    send_community {
-	      value
-	    }
 	    maximum_routes {
 	      value
 	    }
