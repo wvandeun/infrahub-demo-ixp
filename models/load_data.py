@@ -52,8 +52,10 @@ async def run(client: InfrahubClient, log: logging.Logger, branch: str) -> None:
 async def create_and_set_peer_group(
     client: InfrahubClient, log: logging.Logger, branch: str
 ) -> None:
-    peer_group = await client.create("InfraBGPPeerGroup", name="PEER_AMERICAS", import_policies="IMPORT_PEER_AMERICAS", export_policies="EXPORT_PEER_AMERICAS")
+    asn = await client.get("InfraAutonomousSystem", asn__value=64496)
+    peer_group = await client.create("InfraBGPPeerGroup", name="PEER_AMERICAS", import_policies="IMPORT_PEER_AMERICAS", export_policies="EXPORT_PEER_AMERICAS", local_as = asn)
     await peer_group.save()
+
 
     for continent in ["North America", "South America"]:
         location = await client.get("LocationContinent", name__value = continent)
