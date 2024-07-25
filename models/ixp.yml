@@ -1,0 +1,174 @@
+# yaml-language-server: $schema=https://schema.infrahub.app/develop/schema.schema.json
+---
+version: '1.0'
+nodes:
+  - name: IXPBGPPrivatePeering
+    namespace: Infra
+    label: "IXP BGP private peering"
+    description: "Private BGP peering over IXP"
+    menu_placement: InfraService
+    human_friendly_id:
+      - asn__name__value
+      - ixp__name__value
+    display_labels:
+      - name__value
+    inherit_from:
+      - "InfraService"
+    attributes:
+      - name: redundant
+        label: Redundant Sessions
+        kind: Boolean
+        optional: true
+    relationships:
+      - name: asn
+        label: ASN
+        peer: InfraAutonomousSystem
+        cardinality: one
+        kind: Attribute
+        optional: false
+      - name: ixp
+        label: IXP
+        cardinality: one
+        peer: InfraIXP
+        kind: Attribute
+        optional: false
+  - name: TransitPort
+    namespace: Infra
+    label: Transit Port
+    default_filter: name__value
+    menu_placement: InfraEndpoint
+    display_labels:
+      - name__value
+    inherit_from:
+      - "InfraEndpoint"
+    attributes:
+      - name: name
+        kind: Text
+        label: Name
+      - name: speed
+        kind: Number
+        label: Speed
+      - name: bandwidth
+        kind: Number
+        label: Bandwidth
+    relationships:
+      - name: asn
+        label: Peer ASN
+        peer: InfraAutonomousSystem
+        cardinality: one
+        kind: Attribute
+      - name: site
+        label: Site
+        peer: LocationSite
+        cardinality: one
+        kind: Attribute
+      - name: ip_address
+        label: IP Address
+        peer: IpamIPAddress
+        cardinality: one
+        kind: Attribute
+  - name: IXP
+    namespace: Infra
+    description: "Internet Exchange Point."
+    label: "IXP"
+    default_filter: name__value
+    human_friendly_id:
+      - name__value
+    display_labels:
+      - name__value
+    order_by:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+      - name: description
+        kind: Text
+        optional: true
+    relationships:
+      - name: sites
+        label: Sites
+        peer: LocationSite
+        optional: true
+        cardinality: many
+        kind: Attribute
+      - name: networks
+        label: Networks
+        peer: IpamIPPrefix
+        optional: true
+        cardinality: many
+        kind: Attribute
+      - name: address_pool
+        label: Address pool
+        peer: CoreIPAddressPool
+        optional: true
+        cardinality: one
+      - name: endpoints
+        label: Endpoints
+        peer: InfraIXPEndpoint
+        optional: true
+        cardinality: many
+        kind: Component
+      - name: peers
+        label: Peers
+        peer: InfraIXPPeer
+        optional: true
+        cardinality: many
+        kind: Component
+  - name: IXPPeer
+    namespace: Infra
+    description: "Peer in an Internet Exchange Point"
+    label: "IXP Peer"
+    default_filter: name__value
+    menu_placement: "InfraIXP"
+    display_labels:
+      - name__value
+    order_by:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        optional: false
+        unique: true
+      - name: description
+        kind: Text
+        optional: true
+    relationships:
+      - name: ixp
+        peer: InfraIXP
+        label: IXP
+        cardinality: one
+        kind: Attribute
+      - name: asn
+        peer: InfraAutonomousSystem
+        optional: false
+        cardinality: one
+        kind: Attribute
+      - name: ipaddress
+        peer: IpamIPAddress
+        optional: true
+        cardinality: one
+        kind: Attribute
+  - name: IXPEndpoint
+    namespace: Infra
+    description: "Endpoint to Internet Exchange Point"
+    label: "IXP Endpoint"
+    menu_placement: "InfraIXP"
+    inherit_from:
+      - "InfraEndpoint"
+    relationships:
+      - name: ixp
+        peer: InfraIXP
+        optional: false
+        cardinality: one
+        kind: Attribute
+extensions:
+  nodes:
+    - kind: LocationContinent
+      relationships:
+        - name: bgp_peer_group
+          peer: InfraBGPPeerGroup
+          label: BGP Peer Group
+          kind: Attribute
+          cardinality: one
+          optional: true
