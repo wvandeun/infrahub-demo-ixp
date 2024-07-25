@@ -7,7 +7,7 @@ router bgp 65000
    {% for name, group in ns.bgp_peer_groups.items() %}
    neighbor {{ name }} peer group 
    neighbor {{ name }} send-community 
-   neighbor {{ name }} maximum-routes {{ group.maximum_routes.value }} 
+   neighbor {{ name }} maximum-routes 1000
    neighbor {{ name }} local-as {{ group.local_as.node.asn.value }}  
    neighbor {{ name }} route-map {{ group.import_policies.value }} in  
    neighbor {{ name }} route-map {{ group.export_policies.value }} out  
