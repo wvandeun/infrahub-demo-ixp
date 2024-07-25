@@ -37,17 +37,17 @@ def generate_archive(context: Context):
 
 
 @task
-def load_schema(context: Context, schema: Path="./models/infrastructure_base.yml") -> None:
+def load_schema(context: Context, schema: Path="./models/ixp.yml") -> None:
     context.run(f"infrahubctl schema load {schema}")
     restart(context, component="infrahub-server")
 
 @task
-def load_data(context: Context, script: Path="./models/infrastructure_edge.py") -> None:
+def load_data(context: Context, script: Path="./models/load_data.py") -> None:
     context.run(f"infrahubctl run {script}")
 
 @task
 def destroy(context: Context) -> None:
-    context.run("docker compose down -v")
+    context.run(f"{COMPOSE_}docker compose down -v")
 
 @task
 def stop(context: Context) -> None:
