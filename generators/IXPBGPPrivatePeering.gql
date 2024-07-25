@@ -1,0 +1,36 @@
+query IXPBGPPrivatePeering($name: String!) {
+  InfraIXPBGPPrivatePeering(name__value: $name) {
+    edges {
+      node {
+	id
+	redundant {
+	  value
+	}
+        ixp {
+          node {
+            id
+            name {
+              value
+            }
+          }
+        }
+        asn {
+          node {
+            id
+            name {
+              value
+            }
+            organization {
+              node {
+                id
+                name {
+		  value
+		}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

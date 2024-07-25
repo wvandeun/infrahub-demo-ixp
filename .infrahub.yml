@@ -42,3 +42,11 @@ jinja2_transforms:
     description: "Template to generate startup configuration for arista routers"
     query: "arista_router_config"
     template_path: "templates/arista_router_config.j2"
+
+generator_definitions:
+  - name: ixp_bgp_private_peering
+    file_path: "generators/IXPBGPPrivatePeering.py"
+    targets: ixp_bgp_private_peerings
+    query: IXPBGPPrivatePeering
+    parameters:
+      name: "name__value"
