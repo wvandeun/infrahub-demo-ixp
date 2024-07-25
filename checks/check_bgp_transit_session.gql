@@ -3,9 +3,6 @@ query {
     edges {
       node {
         id 
-        name {
-          value
-        }
         type {
           value
         }
